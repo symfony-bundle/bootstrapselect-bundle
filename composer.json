@@ -1,0 +1,23 @@
+{
+    "name": "symfony-bundle/bootstrap-select-bundle",
+    "type": "symfony-bundle",
+    "description": "Bootstrap Select Bundle for Symfony2",
+    "keywords": ["bootstrap", "select"],
+    "homepage": "https://git.anezi.net/symfony/bootstrap-select-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hassan AMOUHZI",
+            "email": "hassan@amouhzi.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.9",
+        "symfony-bundle/jquery-bundle": ">=1.8.0",
+        "bootstrap-select/bootstrap-select": "1.6.*"
+    },
+    "autoload": {
+        "psr-0": { "Anezi\\Bundle\\BootstrapSelectBundle": "" }
+    },
+    "target-dir": "Anezi/Bundle/BootstrapSelectBundle"
+}
