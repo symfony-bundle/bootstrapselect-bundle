@@ -1,9 +1,9 @@
 {
-    "name": "symfony-bundle/bootstrap-select-bundle",
+    "name": "symfony-bundle/bootstrapselect-bundle",
     "type": "symfony-bundle",
-    "description": "Bootstrap Select Bundle for Symfony2",
+    "description": "Bootstrap-select Bundle",
     "keywords": ["bootstrap", "select"],
-    "homepage": "https://git.anezi.net/symfony/bootstrap-select-bundle",
+    "homepage": "http://symfony.anezi.net/bootstrapselect-bundle",
     "license": "MIT",
     "authors": [
         {
@@ -12,12 +12,66 @@
         }
     ],
     "require": {
-        "php": ">=5.3.9",
-        "symfony-bundle/jquery-bundle": ">=1.8.0",
-        "bootstrap-select/bootstrap-select": "1.6.*"
+        "php": ">=5.3.9"
+    },
+    "require-dev": {
+        "symfony/symfony": "~2.6",
+        "twig/extensions": "~1.2",
+        "symfony/assetic-bundle": "~2.5",
+        "sensio/distribution-bundle": "~3.0",
+        "sensio/framework-extra-bundle": "~3.0",
+        "incenteev/composer-parameter-handler": "~2.0",
+        "phpunit/phpunit": "~4.4",
+        "symfony-bundle/bootstrap-bundle": "~3.2",
+        "symfony-bundle/highlight-bundle": "~1.0",
+        "symfony-bundle/zeroclipboard-bundle": "*",
+        "version/version": "~2.0"
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "SymfonyStandard\\Composer::hookRootPackageInstall"
+        ],
+        "post-install-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Anezi\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::copyFilesToBundle",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
+            "Anezi\\Bundle\\JQueryBundle\\Composer\\ScriptHandler::installAssets",
+            "Anezi\\Bundle\\HighlightBundle\\Composer\\ScriptHandler::installExtraAssets",
+            "Anezi\\Bundle\\ZeroClipboardBundle\\Composer\\ScriptHandler::installAssets",
+            "Anezi\\Bundle\\BootstrapSelectBundle\\Composer\\ScriptHandler::installAssets"
+        ],
+        "post-update-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Anezi\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::copyFilesToBundle",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
+            "Anezi\\Bundle\\JQueryBundle\\Composer\\ScriptHandler::installAssets",
+            "Anezi\\Bundle\\HighlightBundle\\Composer\\ScriptHandler::installExtraAssets",
+            "Anezi\\Bundle\\ZeroClipboardBundle\\Composer\\ScriptHandler::installAssets",
+            "Anezi\\Bundle\\BootstrapSelectBundle\\Composer\\ScriptHandler::installAssets"
+        ]
     },
     "autoload": {
-        "psr-0": { "Anezi\\Bundle\\BootstrapSelectBundle": "" }
+        "psr-0": { "Anezi\\Bundle\\BootstrapSelectBundle": "src/" }
     },
-    "target-dir": "Anezi/Bundle/BootstrapSelectBundle"
+    "config": {
+        "bin-dir": "bin"
+    },
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-web-dir": "web",
+        "incenteev-parameters": {
+            "file": "app/config/parameters.yml"
+        },
+        "jquery-version": "*",
+        "zeroclipboard-version": ">1.0",
+        "bootstrapselect-version": "*"
+    }
 }
